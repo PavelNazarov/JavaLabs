@@ -1,0 +1,42 @@
+com.mysql.jdbc.SQLError
+java.sql.SQLWarning
+com.mysql.jdbc.MysqlIO
+
+java.sql.ResultSet.getFetchSize
+
+conn.setReadOnly(false);
+
+Socket -connect -bind
+
+PERFORMANCE = http://dev.mysql.com/doc/refman/5.0/en/connector-j-reference-configuration-properties.html
+
+useSqlStateCodes = Use SQL Standard state codes instead of 'legacy' X/Open/SQL state codes (true/false), default is 'true'
+!!! useServerPrepStmts = Use server-side prepared statements if the server supports them?
+??? ultraDevHack = Create PreparedStatements for prepareCall() when required, because UltraDev is broken and issues a prepareCall() for _all_ statements? (true/false, defaults to 'false')
+
+com.mysql.jdbc.StatementInterceptor
+Statement.setQueryTimeout()
+
+??? pinGlobalTxToPhysicalConnection = When using XAConnections, should the driver ensure that operations on a given XID are always routed to the same physical connection? This allows the XAConnection to support "XA START ... JOIN" after "XA END" has been called
+
+emulateUnsupportedPstmts = Should the driver detect prepared statements that are not supported by the server, and replace them with client-side emulated versions?
+continueBatchOnError = Should the driver continue processing batch commands if one statement fails. The JDBC spec allows either way (defaults to 'true').
+
+!!! traceProtocol = Should trace-level network protocol be logged?
+profilerEventHandler = Name of a class that implements the interface com.mysql.jdbc.profiler.ProfilerEventHandler that will be used to handle profiling/tracing events.
+
+useLocalTransactionState = Should the driver use the in-transaction state provided by the MySQL protocol to determine if a commit() or rollback() should actually be sent to the database
+prepStmtCacheSize = If prepared statement caching is enabled, how many prepared statements should be cached?
+parseInfoCacheFactory = Name of a class implementing com.mysql.jdbc.CacheAdapterFactory, which will be used to create caches for the parsed representation of client-side prepared statements.
+??? "client-side prepared statements"
+cachePrepStmts = Should the driver cache the parsing stage of PreparedStatements of client-side prepared statements, the "check" for suitability of server-side prepared and server-side prepared statements themselves?
+
+---Debugging/Profiling.
+logger
+gatherPerfMetrics
+profileSQL
+reportMetricsIntervalMillis
+
+!!! autoGenerateTestcaseScript = Should the driver dump the SQL it is executing, including server-side prepared statements to STDERR?
+
+
